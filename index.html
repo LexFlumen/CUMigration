@@ -3,102 +3,186 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Mermaid CJM и Flowchart по положению ЦУ</title>
+    <title>Миграционный учет иностранных обучающихся ЦУ</title>
+    <meta
+      name="description"
+      content="Визуализация путей из положения о миграционном учете иностранных обучающихся Центрального университета."
+    />
     <style>
       :root {
-        --bg: #f6f4ef;
+        --bg: #f5f3ee;
+        --bg-accent: #efe6d6;
         --card: #fffdf8;
         --ink: #1f2937;
         --muted: #6b7280;
-        --line: #d6d0c3;
-        --accent: #9a3412;
+        --line: #d8d1c3;
+        --brand: #9a3412;
+        --brand-soft: #fff3e8;
       }
-      * { box-sizing: border-box; }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         margin: 0;
         font-family: "Segoe UI", system-ui, sans-serif;
-        background: linear-gradient(180deg, #efe8da 0%, var(--bg) 35%, #f8f7f3 100%);
         color: var(--ink);
+        background:
+          radial-gradient(circle at top left, rgba(154, 52, 18, 0.08), transparent 22%),
+          radial-gradient(circle at top right, rgba(14, 116, 144, 0.08), transparent 18%),
+          linear-gradient(180deg, var(--bg-accent) 0%, var(--bg) 34%, #f9f8f5 100%);
       }
-      .wrap {
-        max-width: 1400px;
+
+      .shell {
+        max-width: 1440px;
         margin: 0 auto;
-        padding: 32px 20px 56px;
+        padding: 28px 18px 56px;
       }
-      h1 {
-        margin: 0 0 10px;
-        font-size: 34px;
-        line-height: 1.1;
-      }
-      .lead {
-        margin: 0 0 18px;
-        color: var(--muted);
-        max-width: 900px;
-      }
-      .note {
-        margin: 0 0 28px;
-        padding: 12px 14px;
+
+      .hero {
+        padding: 28px;
         border: 1px solid var(--line);
-        border-radius: 12px;
+        border-radius: 24px;
         background: rgba(255, 253, 248, 0.9);
+        box-shadow: 0 18px 40px rgba(31, 41, 55, 0.06);
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        color: var(--brand);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        font-size: clamp(30px, 4vw, 54px);
+        line-height: 1.02;
+      }
+
+      .hero p {
+        max-width: 980px;
+        margin: 0;
+        font-size: 17px;
+        line-height: 1.5;
         color: var(--muted);
       }
-      .toc {
+
+      .legend {
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
-        margin: 0 0 28px;
+        margin-top: 18px;
       }
-      .toc a {
-        text-decoration: none;
-        color: var(--ink);
-        background: rgba(255,255,255,0.75);
+
+      .legend span {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
         border: 1px solid var(--line);
         border-radius: 999px;
-        padding: 8px 12px;
+        background: var(--brand-soft);
+        font-size: 14px;
       }
-      section {
-        margin: 0 0 24px;
-        padding: 18px 18px 24px;
+
+      .nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 18px 0 26px;
+      }
+
+      .nav a {
+        text-decoration: none;
+        color: var(--ink);
         border: 1px solid var(--line);
-        border-radius: 18px;
+        border-radius: 999px;
+        padding: 9px 14px;
+        background: rgba(255, 255, 255, 0.75);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .card {
+        padding: 18px 18px 22px;
+        border: 1px solid var(--line);
+        border-radius: 22px;
         background: var(--card);
-        box-shadow: 0 10px 30px rgba(31, 41, 55, 0.05);
+        box-shadow: 0 12px 32px rgba(31, 41, 55, 0.05);
       }
-      h2 {
+
+      .card h2 {
         margin: 0 0 8px;
-        font-size: 22px;
+        font-size: 24px;
       }
-      p {
+
+      .card p {
         margin: 0 0 14px;
         color: var(--muted);
+        line-height: 1.45;
       }
+
       .mermaid {
         overflow: auto;
+        padding-top: 4px;
       }
+
       .footer {
         margin-top: 18px;
+        padding: 16px 4px 0;
         color: var(--muted);
         font-size: 14px;
       }
-      code {
-        font-family: Consolas, monospace;
-        color: var(--accent);
+
+      @media (max-width: 720px) {
+        .shell {
+          padding: 18px 12px 40px;
+        }
+
+        .hero,
+        .card {
+          padding: 16px;
+          border-radius: 18px;
+        }
+
+        .nav a,
+        .legend span {
+          width: 100%;
+          justify-content: center;
+        }
       }
     </style>
   </head>
   <body>
-    <div class="wrap">
-      <h1>Mermaid CJM и Flowchart по положению ЦУ</h1>
-      <p class="lead">
-        Подробный просмотр всех путей из положения о миграционном учете иностранных обучающихся:
-        один верхнеуровневый flowchart и пять CJM.
-      </p>
-      <div class="note">
-        Страница использует локальный файл <code>mermaid.min.js</code>, поэтому диаграммы можно открывать офлайн.
-      </div>
+    <div class="shell">
+      <section class="hero">
+        <p class="eyebrow">Central University</p>
+        <h1>Схемы по миграционному учету иностранных обучающихся</h1>
+        <p>
+          Это готовая GitHub Pages-страница с Mermaid-диаграммами: общий верхнеуровневый
+          flowchart и детальные CJM по основным путям из положения о миграционном учете
+          иностранных обучающихся Центрального университета.
+        </p>
+        <div class="legend">
+          <span><strong>5</strong> штатный и управляемый путь</span>
+          <span><strong>3</strong> путь, требующий координации</span>
+          <span><strong>1</strong> высокий риск или ограничение</span>
+        </div>
+      </section>
 
-      <nav class="toc">
+      <nav class="nav">
         <a href="#overview">Общий flowchart</a>
         <a href="#scope">Контур допуска</a>
         <a href="#arrival">Въезд и учет</a>
@@ -107,10 +191,11 @@
         <a href="#work">Работа</a>
       </nav>
 
-      <section id="overview">
-        <h2>Общий Flowchart</h2>
-        <p>Верхнеуровневая схема движения студента от допуска к сопровождению до выпуска, отчисления или смены статуса.</p>
-        <div class="mermaid">
+      <div class="grid">
+        <section class="card" id="overview">
+          <h2>Общий Flowchart</h2>
+          <p>Верхнеуровневая схема движения обучающегося от допуска к сопровождению до выпуска, перевода или прекращения статуса.</p>
+          <div class="mermaid">
 flowchart TD
     A["Иностранный кандидат / обучающийся"] --> B{"Программа и формат дают\nоснование для сопровождения?"}
 
@@ -120,7 +205,7 @@ flowchart TD
 
     C --> D{"Нужна виза?"}
     D -->|Да| E["Оформление приглашения"]
-    D -->|Нет| F["Подготовка безвизового въезда\nс целью 'обучение'"]
+    D -->|Нет| F["Подготовка безвизового въезда\nс целью обучение"]
 
     E --> G["Въезд в РФ"]
     F --> G
@@ -204,13 +289,13 @@ flowchart TD
     B2 --> END2["Процесс не запускается"]
     Z8 --> END3["Сопровождение передано"]
     Z10 --> END4["Выезд или новый статус"]
-        </div>
-      </section>
+          </div>
+        </section>
 
-      <section id="scope">
-        <h2>Контур Допуска</h2>
-        <p>Кто попадает в полный контур сопровождения, а кто получает только консультацию.</p>
-        <div class="mermaid">
+        <section class="card" id="scope">
+          <h2>Контур допуска к сопровождению</h2>
+          <p>Кто попадает в полный контур сопровождения, а кто получает только консультационную поддержку.</p>
+          <div class="mermaid">
 journey
     title Контур допуска к миграционному сопровождению
     section Полное сопровождение
@@ -225,13 +310,13 @@ journey
       При наличии самостоятельного законного статуса возможна консультационная поддержка: 3: Университет, Иностранный обучающийся
     section Ограничение по статусу
       РВПО через ЦУ не используется как рабочий путь: 1: Университет, Иностранный обучающийся
-        </div>
-      </section>
+          </div>
+        </section>
 
-      <section id="arrival">
-        <h2>Въезд И Учет</h2>
-        <p>Подготовка ко въезду, уведомление ЦУ и три законных сценария постановки на учет.</p>
-        <div class="mermaid">
+        <section class="card" id="arrival">
+          <h2>Въезд и первичная постановка на учет</h2>
+          <p>Подготовка ко въезду, уведомление ЦУ и законные сценарии постановки на учет по месту пребывания.</p>
+          <div class="mermaid">
 journey
     title Въезд и первичная постановка на учет
     section До въезда
@@ -255,13 +340,13 @@ journey
       Подтверждение учета передается миграционному менеджеру: 4: Иностранный обучающийся, Миграционный менеджер
     section Риск
       Нет подтверждения постановки на учет по месту пребывания: 1: Иностранный обучающийся, Миграционный менеджер
-        </div>
-      </section>
+          </div>
+        </section>
 
-      <section id="study">
-        <h2>Сопровождение Во Время Обучения</h2>
-        <p>Контроль документов, новые въезды, смены адреса, продления и обработка инцидентов.</p>
-        <div class="mermaid">
+        <section class="card" id="study">
+          <h2>Сопровождение в период обучения</h2>
+          <p>Контроль документов, повторные въезды, смены адреса, продления виз и срока пребывания, обязательные процедуры и инциденты.</p>
+          <div class="mermaid">
 journey
     title Сопровождение в период обучения
     section Базовый режим
@@ -284,13 +369,13 @@ journey
       Студент проходит дактилоскопию фотографирование и медосвидетельствование если это требуется: 3: Иностранный обучающийся, Миграционный менеджер
       При замене паспорта или изменении данных студент сразу сообщает в ЦУ: 3: Иностранный обучающийся
       При утрате ключевых документов студент уведомляет ЦУ и оформляет замену: 2: Иностранный обучающийся, Миграционный менеджер
-        </div>
-      </section>
+          </div>
+        </section>
 
-      <section id="status">
-        <h2>Смена Статуса</h2>
-        <p>Перевод, академический отпуск, восстановление, выпуск и отчисление с миграционными последствиями.</p>
-        <div class="mermaid">
+        <section class="card" id="status">
+          <h2>Смена учебного статуса и миграционные последствия</h2>
+          <p>Перевод, академический отпуск, восстановление, выпуск, отчисление и последствия для права пребывания.</p>
+          <div class="mermaid">
 journey
     title Смена учебного статуса и миграционные последствия
     section Внутренний перевод
@@ -319,13 +404,13 @@ journey
       Офис студентов передает приказ об отчислении: 5: Офис студентов
       При необходимости ЦУ уведомляет МВД в течение 3 рабочих дней: 4: Университет
       Миграционная поддержка прекращается и требуется выезд или новый статус: 1: Иностранный обучающийся, Миграционный менеджер
-        </div>
-      </section>
+          </div>
+        </section>
 
-      <section id="work">
-        <h2>Работа</h2>
-        <p>Законные сценарии трудовой деятельности и ключевые контрольные точки для ЦУ и работодателя.</p>
-        <div class="mermaid">
+        <section class="card" id="work">
+          <h2>Законные пути трудовой деятельности</h2>
+          <p>Проверка правового основания, допустимые режимы работы и обязанности работодателя.</p>
+          <div class="mermaid">
 journey
     title Законные пути трудовой деятельности иностранного обучающегося
     section Проверка основания
@@ -346,22 +431,30 @@ journey
       Студент сообщает в ЦУ о заключении прекращении договора и смене статуса: 3: Иностранный обучающийся
     section Прекращение основания
       Если обучение прекращено и право на работу опиралось на статус студента договор прекращается: 1: Иностранный обучающийся, Работодатель
-        </div>
-      </section>
+          </div>
+        </section>
+      </div>
 
       <div class="footer">
-        Исходники: <code>pol_overview_flowchart.md</code>, <code>pol_cjm_mermaid.md</code>.
+        Готово для GitHub Pages. Достаточно разместить этот файл как <strong>index.html</strong> в репозитории или в ветке публикации.
       </div>
     </div>
 
-    <script src="./mermaid.min.js"></script>
-    <script>
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+
       mermaid.initialize({
         startOnLoad: true,
         theme: "neutral",
         securityLevel: "loose",
-        flowchart: { useMaxWidth: true, htmlLabels: true, curve: "basis" },
-        journey: { useMaxWidth: true },
+        flowchart: {
+          useMaxWidth: true,
+          htmlLabels: true,
+          curve: "basis"
+        },
+        journey: {
+          useMaxWidth: true
+        },
         themeVariables: {
           fontFamily: "Segoe UI, sans-serif",
           primaryColor: "#fff8ef",
@@ -369,7 +462,16 @@ journey
           primaryBorderColor: "#b45309",
           lineColor: "#7c2d12",
           secondaryColor: "#fef3c7",
-          tertiaryColor: "#ecfeff"
+          tertiaryColor: "#ecfeff",
+          sectionBkgColor: "#fffdf8",
+          altSectionBkgColor: "#f9f6ef",
+          gridColor: "#d8d1c3",
+          cScale0: "#fee2e2",
+          cScale1: "#ffedd5",
+          cScale2: "#fef3c7",
+          cScale3: "#ecfccb",
+          cScale4: "#dcfce7",
+          cScale5: "#d1fae5"
         }
       });
     </script>
